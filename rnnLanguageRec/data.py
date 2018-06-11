@@ -6,7 +6,7 @@ import glob
 import unicodedata
 import string
 
-all_letters = string.ascii_letters + ".,;"
+all_letters = string.ascii_letters + ".,;'-"
 n_letters = len(all_letters)
 
 def uni_to_ascii(s):
@@ -30,6 +30,7 @@ n_categories = len(all_categories)
 
 import torch
 def line_to_tensor(line):
+   line = line.lower()
    tensor = torch.zeros(len(line), 1, n_letters)
    for i, c in enumerate(line):
       tensor[i][0][all_letters.find(c)] = 1

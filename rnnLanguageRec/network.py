@@ -23,7 +23,6 @@ class RNN(nn.Module):
 
 def get_output(output):
    _,top_i = output.topk(3)
-   print(top_i[0])
    cat_index =[ top_i[0][i] for i in range(top_i[0].size()[0])]
    top_cats = []
    for index in cat_index:

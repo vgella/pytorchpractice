@@ -1,5 +1,6 @@
 from network import*
 from data import*
+import train
 rnn = torch.load('name-classification.pt')		
 def predict(line):
    line_tensor = line_to_tensor(line)
@@ -11,6 +12,8 @@ def predict(line):
 user = " "
 while len(user) > 0:
    user = input("Enter a name: ")
+   if user == "5":
+       train.evaluate()   
    if len(user) == 0: break
    predict(user)
  
